@@ -8,7 +8,9 @@ public class task1 {
         Lock lock = new ReentrantLock();
         Bank bank = new Bank();
         Runnable task = ()->{
+            lock.lock();
           bank.increaseBalance();
+          lock.unlock();
         };
         for (int i = 0; i < 100; i++) {
 
